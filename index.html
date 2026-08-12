@@ -3,24 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App 支持</title>
+    <title>FocusBill — 专注与自我奖励</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 0 20px; line-height: 1.6; }
-        h1 { color: #333; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f9fafb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .hero {
+            text-align: center;
+            padding: 40px 20px 20px;
+            background: linear-gradient(145deg, #eef2ff 0%, #e0e7ff 100%);
+            border-radius: 24px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #4338ca;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .slogan {
+            font-size: 18px;
+            color: #4b5563;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        /* Sections */
+        .section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section h2::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: #6366f1;
+            border-radius: 4px;
+        }
+
+        .section p {
+            color: #374151;
+            margin-bottom: 12px;
+        }
+
+        /* Feature cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .feature-card {
+            background: #f4f4fe;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .feature-card .emoji {
+            font-size: 32px;
+        }
+
+        .feature-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 8px;
+            color: #1f2937;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+
+        /* Plan cards */
+        .plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .plan {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            background: #ffffff;
+        }
+
+        .plan.recommended {
+            border-color: #6366f1;
+            background: #f5f4ff;
+        }
+
+        .plan .price {
+            font-size: 28px;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .plan .name {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 12px;
+            padding: 12px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+
+        /* Guide steps */
+        .steps {
+            margin-top: 16px;
+            counter-reset: step;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-num {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #eef2ff;
+            color: #4338ca;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .step-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: #374151;
+        }
+
+        /* Contact */
+        .contact-box {
+            background: #f4f4fe;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .contact-box .email {
+            font-size: 20px;
+            font-weight: 600;
+            color: #4338ca;
+            text-decoration: none;
+        }
+
+        .contact-box .email:hover {
+            text-decoration: underline;
+        }
+
+        .contact-box p {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 8px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: #9ca3af;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 34px;
+            }
+            .section {
+                padding: 24px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>我的应用 - 支持中心</h1>
-    <p>欢迎使用“我的应用”。如果在使用中遇到问题，请参考以下内容：</p>
 
-    <h2>📖 使用说明</h2>
-    <p>简要描述 App 的使用方法，例如：登录后点击“开始”即可记录专注时间。</p>
+    <div class="container">
 
-    <h2>❓ 常见问题</h2>
-    <p><strong>Q：为什么无法登录？</strong><br>A：请检查网络，或确认账号密码是否正确。</p>
+        <!-- Hero -->
+        <div class="hero">
+            <h1>FocusBill</h1>
+            <div class="slogan">专注，与自我奖励同行</div>
+        </div>
 
-    <h2>📩 联系我们</h2>
-    <p>邮箱：support@example.com</p>
-    <p>我们会在 24 小时内回复。</p>
+        <!-- 基础信息 -->
+        <div class="section">
+            <h2>基础信息</h2>
+            <p>FocusBill 是一款将「专注」与「自我奖励」结合的效率 App。通过专注赚取金币，在「人生商店」中自定义购买奖励；生成专注账单，记录专注时长与奖励支出，让每一次坚持都有看得见的成长与回报。</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="emoji">🎯</div>
+                    <h3>项目—任务—专注</h3>
+                    <p>将长远目标拆解为项目、任务，再进入沉浸式专注，努力有路径，成长有方向。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="emoji">🏪</div>
+                    <h3>人生商店</h3>
+                    <p>奖励完全由你定义。一杯咖啡、一顿大餐、一个懒觉——快乐的选择权在你手里。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="emoji">🧾</div>
+                    <h3>专注账单</h3>
+                    <p>自动记录每一次专注投入与奖励兑换，积累可见、消耗有据。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="emoji">🎮</div>
+                    <h3>游戏化反馈</h3>
+                    <p>攒金币、兑奖励，桌面小组件让进度时刻可见，动力持续在线。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 会员方案 -->
+        <div class="section">
+            <h2>会员方案</h2>
+            <div class="plans">
+                <div class="plan">
+                    <div class="price">¥12</div>
+                    <div class="name">月度会员 / 月</div>
+                </div>
+                <div class="plan recommended">
+                    <div class="price">¥98</div>
+                    <div class="name">年度会员 / 年</div>
+                </div>
+                <div class="plan">
+                    <div class="price">¥198</div>
+                    <div class="name">终身会员 / 一次购买</div>
+                </div>
+            </div>
+            <div class="note">
+                <strong>自动续费说明：</strong>订阅服务默认开启自动续费。如需取消续订，请在当前订阅周期到期前 24 小时前，手动在 iTunes 中关闭自动续费。
+            </div>
+        </div>
+
+        <!-- 使用指南 -->
+        <div class="section">
+            <h2>使用指南</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>创建项目与任务</h4>
+                        <p>将目标拆分为项目，再创建具体的任务，为每次专注赋予清晰方向。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>开始专注计时</h4>
+                        <p>选择一个任务进入专注状态，完成后获得对应金币奖励。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>积累金币</h4>
+                        <p>每一次专注都会为你积累金币，持续投入让金币不断增长。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4>在人生商店兑换奖励</h4>
+                        <p>在“人生商店”中自定义奖励内容和价格，用金币兑换你想要的奖励。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <h4>查看专注账单</h4>
+                        <p>通过“专注账单”回顾专注时长与奖励支出，让每一份付出都被看见。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 常见问题 -->
+        <div class="section">
+            <h2>常见问题</h2>
+
+            <div class="faq-item">
+                <h4>如何取消自动续费？</h4>
+                <p>在 iPhone/iPad 上，前往「设置」> 点击您的 Apple ID > 「订阅」，选择 FocusBill，点击取消订阅即可。请注意，当前订阅周期到期前 24 小时未取消将自动续费。</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>购买会员后能否恢复？</h4>
+                <p>可以。在 App 内点击「恢复购买」，使用同一 Apple ID 即可恢复已购买的会员权益。</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>金币记录会丢失吗？</h4>
+                <p>金币记录保存在 App 中，您可以在「专注账单」或金币明细中查看。如需卸载 App，建议先了解本地数据保存机制（因为不同版本可能有差异）。如有疑问，请联系我们。</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>专注账单支持导出吗？</h4>
+                <p>目前可在 App 内直接查看账单，暂不支持导出。未来会根据用户需求考虑更新，请留意 App 版本更新说明。</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>如何联系我们？</h4>
+                <p>有任何问题、建议或合作需求，欢迎发送邮件至 support@focusbill.com，我们会尽快回复。</p>
+            </div>
+        </div>
+
+        <!-- 联系方式 -->
+        <div class="section">
+            <h2>联系方式</h2>
+            <div class="contact-box">
+                <p>欢迎随时联系我们：</p>
+                <a class="email" href="mailto:support@focusbill.com">support@focusbill.com</a>
+                <p>我们通常会在 1~2 个工作日内回复您的邮件。</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2025 FocusBill · 专注与自我奖励
+        </div>
+
+    </div>
+
 </body>
 </html>
