@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocusBill — 专注与自我奖励</title>
+    <title>FocusBill — Help &amp; Support</title>
     <style>
         * {
             margin: 0;
@@ -24,7 +24,36 @@
             padding: 40px 20px;
         }
 
-        /* Header */
+        /* Language switch */
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .lang-switch button {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #374151;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-left: 8px;
+            transition: all 0.2s;
+        }
+
+        .lang-switch button:hover {
+            background: #f3f4f6;
+        }
+
+        .lang-switch button.active {
+            background: #111827;
+            border-color: #111827;
+            color: #ffffff;
+        }
+
+        /* Hero */
         .hero {
             text-align: center;
             padding: 40px 20px;
@@ -78,37 +107,6 @@
         .section p {
             color: #374151;
             margin-bottom: 12px;
-        }
-
-        /* Feature cards */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-top: 16px;
-        }
-
-        .feature-card {
-            background: #f3f4f6;
-            border-radius: 12px;
-            padding: 20px;
-        }
-
-        .feature-card .emoji {
-            font-size: 32px;
-        }
-
-        .feature-card h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-top: 8px;
-            color: #1f2937;
-        }
-
-        .feature-card p {
-            font-size: 14px;
-            color: #6b7280;
-            margin-top: 4px;
         }
 
         /* Guide steps */
@@ -209,6 +207,10 @@
             margin-top: 40px;
         }
 
+        #content-zh {
+            display: none;
+        }
+
         /* Responsive */
         @media (max-width: 640px) {
             .hero h1 {
@@ -224,134 +226,242 @@
 
     <div class="container">
 
-        <!-- Hero -->
-        <div class="hero">
-            <h1>FocusBill</h1>
-            <!-- <div class="slogan">专注，与自我奖励同行</div> -->
-            <div class="slogan">帮助与支持</div>
+        <!-- Language Switch -->
+        <div class="lang-switch">
+            <button id="btn-zh" onclick="setLanguage('zh')" type="button">中文</button>
+            <button id="btn-en" class="active" onclick="setLanguage('en')" type="button">English</button>
         </div>
 
-        <!-- 基础信息（无标题） -->
-        <div class="section">
-            <p>FocusBill 是一款将「专注」与「自我奖励」结合的效率 App。通过专注赚取金币，在「人生商店」中自定义购买奖励；生成专注账单，记录专注时长与奖励支出，让每一次坚持都有看得见的成长与回报。</p>
+        <!-- ========== English Version (Default) ========== -->
+        <div id="content-en">
 
-            <!-- <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="emoji">🎯</div>
-                    <h3>项目—任务—专注</h3>
-                    <p>将长远目标拆解为项目、任务，再进入沉浸式专注，努力有路径，成长有方向。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="emoji">🏪</div>
-                    <h3>人生商店</h3>
-                    <p>奖励完全由你定义。一杯咖啡、一顿大餐、一个懒觉——快乐的选择权在你手里。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="emoji">🧾</div>
-                    <h3>专注账单</h3>
-                    <p>自动记录每一次专注投入与奖励兑换，积累可见、消耗有据。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="emoji">🎮</div>
-                    <h3>游戏化反馈</h3>
-                    <p>攒金币、兑奖励，桌面小组件让进度时刻可见，动力持续在线。</p>
-                </div>
-            </div> -->
-        </div>
+            <div class="hero">
+                <h1>FocusBill</h1>
+                <div class="slogan">Help &amp; Support</div>
+            </div>
 
-        <!-- 使用指南 -->
-        <div class="section">
-            <h2>使用指南</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-num">1</div>
-                    <div class="step-content">
-                        <h4>创建项目与任务</h4>
-                        <p>将目标拆分为项目，再创建具体的任务，为每次专注赋予清晰方向。</p>
+            <div class="section">
+                <p>FocusBill is a productivity app that combines focus with self-reward. Earn coins from each focus session, set your own rewards in the Life Store, and let Focus Bills track your focus time and reward spending — so every effort you make leads to visible growth.</p>
+            </div>
+
+            <div class="section">
+                <h2>Getting Started</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>Create Projects and Tasks</h4>
+                            <p>Break your goals into projects, then create specific tasks, so every focus session has a clear purpose.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">2</div>
-                    <div class="step-content">
-                        <h4>开始专注计时</h4>
-                        <p>选择一个任务进入专注状态，完成后获得对应金币奖励。</p>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>Start Focus Timer</h4>
+                            <p>Choose a task and start a focus session. When it is completed, you will earn the corresponding coin reward.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">3</div>
-                    <div class="step-content">
-                        <h4>积累金币</h4>
-                        <p>每一次专注都会为你积累金币，持续投入让金币不断增长。</p>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>Accumulate Coins</h4>
+                            <p>Every focus session adds coins to your balance. The more you focus, the more your coins grow.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">4</div>
-                    <div class="step-content">
-                        <h4>在人生商店兑换奖励</h4>
-                        <p>在“人生商店”中自定义奖励内容和价格，用金币兑换你想要的奖励。</p>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <div class="step-content">
+                            <h4>Redeem Rewards in Life Store</h4>
+                            <p>In Life Store, create custom rewards and set their prices, then use your coins to redeem them.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">5</div>
-                    <div class="step-content">
-                        <h4>下载专注账单</h4>
-                        <p>通过“专注账单”回顾专注时长与奖励支出，让每一份付出都被看见。</p>
+                    <div class="step">
+                        <div class="step-num">5</div>
+                        <div class="step-content">
+                            <h4>Download Focus Bills</h4>
+                            <p>Use Focus Bills to review your total focus time and reward spending, so all your effort becomes visible.</p>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="section">
+                <h2>FAQ</h2>
+
+                <div class="faq-item">
+                    <h4>How do I cancel my auto-renewing subscription?</h4>
+                    <p>On your iPhone/iPad, go to Settings, tap your Apple ID, then choose Subscriptions. Select FocusBill and tap Cancel Subscription. Please note that if you do not cancel at least 24 hours before the current period ends, the subscription will automatically renew.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I restore my purchase?</h4>
+                    <p>Yes. In the app, tap “Restore Purchase” while signed in with the same Apple ID, and your membership benefits will be restored.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How is my data saved?</h4>
+                    <p>FocusBill saves all your records and coin data both locally on your device and in iCloud. This dual backup helps keep your data safe from loss.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I sync my data across devices?</h4>
+                    <p>Yes. Your data can be automatically synced across devices signed into the same iCloud account.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will my data be lost if I delete the app?</h4>
+                    <p>No. Your data remains safely stored in iCloud. When you reinstall FocusBill and sign in with the same Apple ID, the app will automatically restore your data from the cloud. Your records will not disappear unless you manually delete them from iCloud.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I export Focus Bills?</h4>
+                    <p>Yes. On the Records screen, tap the Download button to generate an image of your bill and save it to your photo library. When asked for permission on the first export, choose “Allow Adding Photos” to save normally.</p>
+                </div>
+
+            </div>
+
+            <div class="section">
+                <h2>Contact Us</h2>
+                <div class="contact-box">
+                    <p>Feel free to contact us:</p>
+                    <a class="email" href="mailto:support@focusbill.app">support@focusbill.app</a>
+                    <p>We usually reply within 1–2 business days.</p>
+                </div>
+            </div>
+
+            <div class="footer">
+                © 2026 FocusBill · Focus &amp; Self-Reward
+            </div>
         </div>
 
-        <!-- 常见问题 -->
-        <div class="section">
-            <h2>常见问题</h2>
+        <!-- ========== Chinese Version ========== -->
+        <div id="content-zh">
 
-            <div class="faq-item">
-                <h4>如何取消自动续费？</h4>
-                <p>在 iPhone/iPad 上，前往「iTunes」> 点击您的 Apple ID > 「订阅」，选择 FocusBill，点击取消订阅即可。请注意，当前订阅周期到期前 24 小时未取消将自动续费。</p>
+            <div class="hero">
+                <h1>FocusBill</h1>
+                <div class="slogan">帮助与支持</div>
             </div>
 
-            <div class="faq-item">
-                <h4>购买会员后能否恢复？</h4>
-                <p>可以。在 App 内点击「恢复购买」，使用同一 Apple ID 即可恢复已购买的会员权益。</p>
+            <div class="section">
+                <p>FocusBill 是一款将「专注」与「自我奖励」结合的效率 App。通过专注赚取金币，在「人生商店」中自定义购买奖励；生成专注账单，记录专注时长与奖励支出，让每一次坚持都有看得见的成长与回报。</p>
             </div>
 
-            <div class="faq-item">
-                <h4>数据怎样保存？</h4>
-                <p>FocusBill 会将你的所有记录与金币数据保存在 App 本地及 iCloud 云端，双重保障，数据不易丢失。</p>
+            <div class="section">
+                <h2>使用指南</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>创建项目与任务</h4>
+                            <p>将目标拆分为项目，再创建具体的任务，为每次专注赋予清晰方向。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>开始专注计时</h4>
+                            <p>选择一个任务进入专注状态，完成后获得对应金币奖励。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>积累金币</h4>
+                            <p>每一次专注都会为你积累金币，持续投入让金币不断增长。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <div class="step-content">
+                            <h4>在人生商店兑换奖励</h4>
+                            <p>在“人生商店”中自定义奖励内容和价格，用金币兑换你想要的奖励。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">5</div>
+                        <div class="step-content">
+                            <h4>下载专注账单</h4>
+                            <p>通过“专注账单”回顾专注时长与奖励支出，让每一份付出都被看见。</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="faq-item">
-                <h4>数据可以跨设备同步吗？</h4>
-                <p>可以，数据可以在登录同一 iCloud 账户的设备间自动同步。</p>
+            <div class="section">
+                <h2>常见问题</h2>
+
+                <div class="faq-item">
+                    <h4>如何取消自动续费？</h4>
+                    <p>在 iPhone/iPad 上，前往「设置」> 点击顶部您的 Apple ID > 「订阅」，选择 FocusBill 后点击取消订阅。请注意，当前订阅周期到期前 24 小时未取消将自动续费。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>购买会员后能否恢复？</h4>
+                    <p>可以。在 App 内点击「恢复购买」，使用同一 Apple ID 即可恢复已购买的会员权益。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>数据怎样保存？</h4>
+                    <p>FocusBill 会将你的所有记录与金币数据保存在 App 本地及 iCloud 云端，双重保障，数据不易丢失。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>数据可以跨设备同步吗？</h4>
+                    <p>可以，数据可以在登录同一 iCloud 账户的设备间自动同步。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>卸载 App 后数据会丢失吗？</h4>
+                    <p>不会丢失。卸载后数据仍安全保存在 iCloud 中。再次下载并登录同一 Apple ID 时，App 会自动从云端恢复数据；除非在 iCloud 中手动删除，否则记录不会消失。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>专注账单支持导出吗？</h4>
+                    <p>支持。您可以在「记录」页面点击「下载」按钮，将账单生成图片并保存到系统相册。首次导出时需授权 FocusBill 访问相册，请选择「允许添加照片」即可正常保存。</p>
+                </div>
+
             </div>
 
-            <div class="faq-item">
-                <h4>卸载 App 后数据会丢失吗？</h4>
-                <p>不会丢失。卸载后数据仍安全保存在 iCloud 中。再次下载并登录同一 Apple ID 时，App 会自动从云端恢复数据；除非在 iCloud 中手动删除，否则记录不会消失。</p>
+            <div class="section">
+                <h2>联系方式</h2>
+                <div class="contact-box">
+                    <p>欢迎随时联系我们：</p>
+                    <a class="email" href="mailto:support@focusbill.app">support@focusbill.app</a>
+                    <p>我们通常会在 1~2 个工作日内回复您的邮件。</p>
+                </div>
             </div>
 
-            <div class="faq-item">
-                <h4>专注账单支持导出吗？</h4>
-                <p>支持。您可以在「记录」页面点击「下载」按钮，将账单生成图片并保存到系统相册。首次导出时需授权 FocusBill 访问相册，请选择「允许添加照片」即可正常保存。</p>
+            <div class="footer">
+                © 2026 FocusBill · 专注与自我奖励
             </div>
-
-        </div>
-
-        <!-- 联系方式 -->
-        <div class="section">
-            <h2>联系方式</h2>
-            <div class="contact-box">
-                <p>欢迎随时联系我们：</p>
-                <a class="email" href="mailto:support@focusbill.app">support@focusbill.app</a>
-                <p>我们通常会在 1~2 个工作日内回复您的邮件。</p>
-            </div>
-        </div>
-
-        <div class="footer">
-            © 2026 FocusBill · 专注与自我奖励
         </div>
 
     </div>
+
+    <script>
+        function setLanguage(lang) {
+            var contentEn = document.getElementById('content-en');
+            var contentZh = document.getElementById('content-zh');
+            var btnEn = document.getElementById('btn-en');
+            var btnZh = document.getElementById('btn-zh');
+
+            if (lang === 'zh') {
+                contentEn.style.display = 'none';
+                contentZh.style.display = 'block';
+                btnEn.classList.remove('active');
+                btnZh.classList.add('active');
+                document.documentElement.lang = 'zh-CN';
+                document.title = 'FocusBill — 专注与自我奖励';
+            } else {
+                contentEn.style.display = 'block';
+                contentZh.style.display = 'none';
+                btnZh.classList.remove('active');
+                btnEn.classList.add('active');
+                document.documentElement.lang = 'en';
+                document.title = 'FocusBill — Help & Support';
+            }
+        }
+    </script>
 
 </body>
 </html>
